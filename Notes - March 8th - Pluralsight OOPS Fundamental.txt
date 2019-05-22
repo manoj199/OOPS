@@ -1,0 +1,77 @@
+12.32 PM
+Continuation with OOP fundamentals in Pluralsight
+
+Will be adding methods in this module:
+
+==Building a Class:Methods
+-Let's add the methods after all the properties in the code file to keep our class organized.
+-Methods are created using C# function syntax. The function will be public, so that any other code can access the function. The validate method will return true/false identifying weather or not the data was validate so the return type is going to be boolean. And we are calling it validate, it has no parameters.
+- So let's say that specification identified that the last name email address were required. 
+- Validate method now validates state of the object as per the specification.
+- Normally you would would want to write automated code test valid values invalid values.
+- As you write your code consider immediately writing tests for that code or you can use a test first approach, were you write the test and then pass that test. Either way it is very beneficially to test the logic of your application. The help you catch the majority of the bugs write after you have written it. Right when you still remember it exactly what you were doing and why? Then later if you have to change any code, you can re-run the tests. Then you can ensure your future changes and enhancments don't break your existing code.
+- Will put the methods in alphabetical order so that code looks bit organized.
+-Retrive method retrives a single customer, it takes customer id as a parameter. That returns the one customer.
+- What if we need to display a list of customers. If we have small enough number of customers, we may also want a retrive that retrives all of them. We could then display all of them in a list.
+-If we have allot of customers we may want a Retrive that retrives all of the customers specfic to the region or all of them with the orders are pending. For our purposes we will just define a second retrive with no parameters that returns all of the customers.
+
+##Terms
+- Method Signature OR Function Signature:The signature of the method is comprised of its name and type of it's formal parameters. The signature does not include the return type
+- The system uses the signature to match up calls to that function. 
+- c1.Retrive() so this code is used to match the correct retrieve() with no parameters
+- c1.Retrieve(5) is matched to the correct retrieve that takes an integer paramater Retrieve(int customerId)  
+-Each signature must be unique but the signature includes both the name and the parameters.. you can have multiple methods with the same name as long as the paramters lists defer.
+- Overloading: The term overloading is used to describe methods..That have the same name but different parameters. The first retrieve takes on parameter and the second retrive takes no parameter then we can say that Retrieve method is overloaded.
+- Since overloaded members have the same name. They should provide variations of the same functionality. In our example both overloades retrieve Customers. so that would make sense that both have the same name.
+-If one method retrieved the customer and other retrieved the customerTypes for example, they should not have the same name. Because they don't provide the same functionality 
+-Contract: All of the properties and methods defined using the public access modifier define the public contract.That is to say that the class makes the promise, that it will provide the defined properties and methods to any other code that needs them. Overtime the code can extend the contract by adding new properties and methods. But it should not modify or remove properties and methods once the class is been deployed to production. That's because other code depends on using that properties and methods. This contract is also called as class interface.
+
+##Building a Class: Constructor:
+
+- The last thing a customer class needs is a constructor 
+- A constructor is a code that is executed each time instance of the class is created.
+- It is basically a special kinda method named with the class name.
+- Constructors are normally defined at the top of the class above the properties and methods.
+- A construtor with no pramater is called as a default constructor.Since all the properties in this class default to appropriate values. There is no need to initialize the constructor 
+- You can additional constructors with parameters if required. If you dont need any other constructor or any code in the constructor. You don't actually have to create a constructor.An implied default constructor will be defined for you.
+- Since the customeId has a private setter. The customerId cannot be set outside of the customer class. We are gonna pass it in as a parameter. In the body of the constructor we are then going to set the property with the passed in integer.
+- this represents the current instance of the class
+
+## Building remaining classes
+
+Product Class:
+-Product Name
+-Description
+-Current Price
+-Validate()
+-Retrieve()
+-Save()
+
+Order Class:
+-Order date
+-Validate()
+-Retrieve()
+-Save()
+
+Order Item:
+-Product 
+-Quantity 
+-Purchase Price
+-Validate()
+-Retrieve()
+-Save()
+
+- Product class has default constructor, it is a constructor with no parameters and in overloaded constructor with productId parameter.Similar to the customer class.
+- Notice that the CurrentPrice is defined with the Decimal?. The ? denotes a nullable type .. A nullable type is a value type such as an integer or a decimal.That allows the defination of the value or null.
+- It is useful if the code needs to be distingushed between not set and 0.In this case 0 is a valid price but it's not valid to have no price, using a nullable value makes that distinction.
+- In our case price of 0 is a valid price, but it's not valid to have no price. Using a nullable value that makes the distinction.
+-The product class also defines methods, you have the retrieve method, save method, and Validate().
+
+
+- Next let's look at the order class 
+- The order has two properties OrderDate, OrderId
+ - The DateTimeOffset value type tracks the DateTime and timezone offset. It's great type to use when the datetime can be set in different time zones.
+- For example: Someone in Detriot place an order at 10am. And someone in Paris can order at 10am. But those orders were not placed at actual same time. By keeping timezone offset you can correctly compare dates from different time zones. This is easier than normalizing all the times to UTC. Plus you could look at the field, and know what time an order was placed in customers local time we use the nullable to determine weather order date was set or not.  
+
+
+-Lastly there is the order item class.

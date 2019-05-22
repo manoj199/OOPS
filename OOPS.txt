@@ -1,0 +1,50 @@
+1. Write basic concepts of OOPS?
+
+Ans: Following are the concepts of OOPS and are as follows:
+
+Abstraction.
+Encapsulation.
+Inheritance.
+Polymorphism.
+
+2. What is C#?
+Ans: C# is a modern general purpose object oriented programming language. So the more you know about the object-oriented programming concepts the more you can leverage the features of C# to build well-crafted and testable applications.
+
+3.Why do we need to use OOPs while coding or why use OOPS?
+Ans: 
+- Clean Code: Want to write clean code? The first step in writing clean code is to organize the code into appropriate classes using object-oriented programming techniques(FYI:Clean code is code that is easy to understand and easy to change, Easy to understand means the code is easy to read, whether that reader is the original author of the code or somebody else. It's meaning is clear so it minimizes the need for guesswork and possibility for misunderstandings.)
+
+
+- Defensive Coding: Want to defend your code against errors both now and in the future? The first step in integrating defensive coding techniques into your application is to organize the code into appropriate classes using object-oriented programming techniques.
+(FYI: Defensive programming is a form of defensive design intended to ensure the continuing function of a piece of software under unforeseen circumstances. Defensive programming practices are often used where high availability, safety or security is needed.
+Making the software behave in a predictable manner despite unexpected inputs or user actions.
+)
+
+- Iterative Agile: Want to use iterative or agile approach to building your software? the first step towards using an iterative or agile approach is to organize the code into appropriate classes using object-oriented programming techniques
+
+- Design Patterns: Want to understand design and implement design patterns?Design patterns are based on object-oriented programming concepts.
+
+- Domain-Driven: Want to use domain-driven principles? Domain- Driven design is based on object-oriented programming concepts
+
+4. What is a class?
+Ans: A class is simply a representation of a type of object.It is the blueprint that describes the details of an object.A class is a code.. It has class keyword..it has properties.. The properties define the data managed by the class..The class also has functions..The functions define the actions or behaviours managed by the class. In object oriented programming this functions are called methods.
+
+5.What is an object?
+Ans: An object is an instance of a class. It has its own state, behavior.
+- An object is an instance of a class it is created using the C# new keyword. That instance is an object.The variable then references the resulting object.Hence it is often called an object variable.The object variable holds the state of that object, meaning it retains the value of it's properties. You can also use the object variable to call any of the methods identified in the class.Objects only exist at run time. When the application terminates, the object is gone. Any object state is one unless it was stored somewhere such as in a database, but the class still exists because the class is defined in the code.
+
+6.So what is object oriented programming? Or some people may call it OOP?
+- OOP is an approach to designing and building applications that are flexible,natural, well crafted and testable, by foucsing on objects that are interact cleanly with one another. 
+
+7. What is Abstraction?
+- You can think of abstraction as a process of defining classes by simplifying reality,ignoring extraneous details, and foucsing on what is important for a purpose.It involves abstracting away the extraneous details in order to focus on what is relevant for the particular application.Defining appropriate abstractions is considered one of the pillars or key characteristics of object-oriented programming.
+
+8. What is Encapsulation?
+- Encapsulation is a way to hide or encapsulate the data and implementation details within a class, thus hiding complexity.The data fields,are all hidden within the class.No other code can access these data fields.The code for the operations is also hidden within the class.No other code can just jump into this code. The benefit of hiding this data and implementation is that no other code in the application needs to know about these details. In C#, the data is exposed to the application through proerty getters and setters. The operations are exposed to the applications through methods.
+
+9. What is polymorphism?
+- Polymorphism enables us to invoke derived class methods using a base class reference variable at runtime that's polymorphism.
+
+
+
+

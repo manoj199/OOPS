@@ -1,0 +1,82 @@
+9.15AM 
+Building and Vidly Mvc application which is an video rental application.
+
+What is this MVC all about?
+Ans: MVC stands for model, view, controller.It is one of the architectural pattern for implementing user interfaces. 
+-Although it was originally developed for desktop applications
+-Designed in 1970
+-Widely adopted in web (As a result many frameworks have been created then enforced this pattern)
+- Asp.Net MVC, Ruby on rails, Express
+
+What is a Framework?
+Ans: A framework, or software framework, is a platform for developing software applications. It provides a foundation on which software developers can build programs for a specific platform. For example, a framework may include predefined classes and functions that can be used to process input, manage hardware devices, and interact with system software. This streamlines the development process since programmers don't need to reinvent the wheel each time they develop a new application.
+
+What is a Model?
+Ans:In an MVC application Model represents Application data and behaviour in terms of its problem domain, and independentof the UI.
+For example in our video rental application. Our model will consist of classes like Movie,Customer,Rental,Transaction and so on,these classes have properties and methods that purely represent the application state an rules. They are not tied to the user interface, which means you can take these classes and use them in different kind of app like a desktop or a mobile app
+
+What is View?
+And: V in MVC represent the View this is the HTML markup that we display to the user.
+
+What is Controller?
+Ans: And C is a controller that is responsible for handling an HTTP Request.
+
+Imagine our application is hosted at vidly.com. when we send a request to http://vidly.com/movies a contoller will be selected to handle this request. This controller will get all the movies from the database(using models) put them in a view.And return the view to the client or the browser.
+
+You see with this architecture each component has distinct responsiblity and this results better seperation of concerns and more maintanable application.
+
+Router:
+Earlier we said when a request comes to the application contoller will be selected to handle that request. 
+-Selecting the right contoller is responsiblity of the Router.
+-a Router based on some rules knows that request with the url vidly.com/movies should be handeled by class MoviesController. More accurately it should be handled by one of the methods of the class. class can have many different methods. In ASP.NET MVc we refer methods as actions. so we can say an action in a controller is responsible for handling a request.
+
+Install: 
+- Visual Studio Productivity Power Tools
+- Web Essentials 2013.5
+
+Let's check the folder struture:
+App_Data: Which is where our database file will be stored.
+App_start: Which includes few classes that are called when the application is started.Lets take a look at one of these for example.
+RoutConfig.s : This is configuration for our routing rules. Here you see.
+
+routes.MapRoute(
+name: "Default", // Here you see the route with the name Default
+url: "{controller}/{action}/{id}", // with this url pattern. So if a url matches with this pattern..The first part of the url is assumed to be the name of the controller.. the second part is assumed to be the name of the action.The third part is an id that you can pass to the action.
+defaults : new { contoller = "Home", action = "Index", id = UrlParameter.Optional } // We see that we have some default values in this route.So if our url does not have any of the abobe parts, It will be passed to the home controller. If the url has the only the controller but not the action it will be handeled by the Index action.
+So we go to /movies Since the action name is not specified in the url it will be Index() in movies controller. 
+Also you can see the id is a optional parameter.Because not every action needs an id, we only need this if we work with specific resource like a Movie or a Customer for the given id.	
+)
+
+With the above rules: if we send a request to /movies/popular.. Asp.net runtime will call a method or an action called Popular() in movies controller.
+Another example: If we send a request to /movies/edit/1.. Asp.Net runtime will call the Edit action of the movies controller and pass 1 as the id this action.
+
+
+Content:We also have this content folder where we store our css,images any other client side assets.
+Contollers: Next we have controllers, the defualt project template has three controllers 
+Account - Which has actions for Sign Up, Login, Log Out
+Home - Which represents homes page 
+Manage - And this provides a number of actions for handling requests around users profile.Like chaning password , enabling two factor authentication,usin social logins and so on.
+
+Models: So all our domain classes will be here.
+Scripts: Where we store our javascript files.
+Views: Here we have folders named after our controllers in our application. We will have the folders with the same name as the controller.So by convention when we use a view in a controller asp.net will look for that folder in the same name as controller. We also have a folder called shared which includes views that can be used across different controllers.
+
+- Finally we have other files favicon is the icon of the application displayed in the browser.
+- Global.asax: Is one of the traditional files that has been in asp.net for a long time, it's a class that provides hooks for various events in the applications life cycle.
+  So when the application is started this method in the global.asax will be called.
+  
+  protected void Application_Start()
+  {
+    AreaRegistration.RegisterAllAreas();
+    FilterConfig.RegisterGlobalFilters(RouteTable.Routes);
+    RouteConfig.RegisterRoutes(RouteTable.Routes);
+    BundleConfig.RegisterBundles(BundlesTable.Bundles);
+  }
+  Here you can see that we are registering few things like the routes.. So when the application is started we   tell the runtime these are the routes for our application.
+
+package.config: Which is used by nuget package manager.We use to manage the depedencies of our application. So let's say our application has dependencies to 4 exteranal libraries, instead of going to four different websites for downloading these libraries.we use a package manager,and this package manager will download these dependencies from it's central repository. Also if one of these libraries have a newer version, again we use package manager to upgrade one or more of this packages.
+
+Startup.cs: This is the new approach Microsoft is taking for starting the application. In the upcoming next asp.net core they have dropped the global.asax page.. and all the startup logic is implemented in this startup class.
+
+Web.config: which is an xml, which includes the configuration for our application. Out of the elements you see.. you need to mostly work with two sections..ConnectionStrings: Which is were we specify database connection strings.Appsettings: Which is were we specfiy configuration settings for our applications.
+

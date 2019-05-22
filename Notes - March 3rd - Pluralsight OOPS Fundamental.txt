@@ -1,0 +1,107 @@
+11:00 AM
+Continuing with Object Oriented Programming Video from Pluralsight
+
+##Identifying classes from Requirements
+- Analyze the business problem
+-- You have been just given a feature request or a business problem statement, or a specification, or maybe just a breif email, and you are expected to turn those words into code and not just any code, but code this is clean, defended, manageable, maintainable, extensible, and testable.
+
+Where do you start?
+- The first step in building an OO application is identifying the classes.
+  Lets take a close look at the specification,change requesr, or email, or whatever that we were given and use it to identify an initial set of classes that represent the business entities.And then we can define the appropriate properties and methods.So picture this.You are called into meeting!!
+
+##Build an Acme Customer Management System.
+Requirements:
+=The new system must manage business,residential, goverment, and educational types of customers.
+- We must minimally track the customer's name(last name, first name), email address, and home and work adresses
+- It must manage our both current products and products we are provided by Consolidated Solutions.We must minimally track the product name, description, and current price.
+- And accept orders from customers either online or though our call center. We must minimally track the order date, shipping address, products, and quantities ordered. 
+
+== Start with Nouns: When extracting classes from words, the easiest place to start with is a noun. A noun is a person, place, thing, or process. Look at each noun and determine wheather it should be defined as a class.
+-Looking at the first requirement, manage business, residential, government, and educator types of customers. The noun that sticks out is CUSTOMER.
+-From the second requirement, manage both our current products and Consolidated Systems products, the noun is PRODUCT.
+-The third requirement,accept orders from customers either from online or through our call center. It talks about ORDER.In this case, each requirement identified one class. That may not always be the case. Some requirements may identify multiple classes or no class at all. So we identified three classes.
+-Customer
+-Product
+-Order
+Next we need to identify appropriate properties and methods for each of these classes.
+
+== Define Appropriate Members
+The members of the class defines the properties or data the class requires and the methods or operations that an object from the class can perform.So here are our classes so far. Let's start with the CUSTOMER Class.
+
+CUSTOMER CLASS:
+- Recall the meeting with SME, we must minimally track the Customer Name, email address, and home and work addresses.So what are the customer properties?
+-Name
+-Email Address 
+-Home Address
+-Work Address
+
+PRODUCT CLASS:
+- Recall from the meeting, we must minimally track the product name, description and current price. So those are the properties for the product.
+-Product Name
+- Desciption
+- Current Price
+
+ORDER CLASS:
+-And finally the order class. Recall from the meeting, we must minimally track the order date, shipping address, and the products and quantities ordered.So what are the order class properties?
+-Customer
+-Order Date
+-Shipping address
+-Product
+-Quantity Wait What? That isn't right. What's wrong with the order? Using the nouns to determine the intial set of classes is helpful, but it only provides the start point.Looking at the properties and methods for each class helps clarify the design and often illustrates other potential classes.In  this case we need to track the Customer,Order date,Shipping address for the orde, and then each product and quantity ordered. It would't make sense to make a separate order for each product, so it sounds like we need another class.ORDER ITEM.
+
+Refactor the classes.
+
+ORDER CLASS:
+-Customer
+-Order Date
+-Shipping Address
+
+ORDER ITEM CLASS:
+-Product 
+-Quantity
+
+Now that we have the properties.. What about the methods?
+The methods define the actions and behaviours appropriate for the class.Hence methods are named using a verb.
+- Each object instantiated from the class can perform the actions and behaviors.We'll need some basic methods on each of the classes.We can add Validate() to Validate that the valid information is entered.Each object can call this validate methods to ensure that its values are in a valid state.We'll also add a retrive to each class.Though not specifically requested, we know that the user will want to work with the existing data.Add will add a SAVE method. Again, not specifically requested, but we know that users will expect to save their data.
+-We have initial set of classes along with there properties and methods
+-There is one more thing that we need to think at this stage.That is the fourth dimension(TIME).It is easier to think about the classes and their members at one point in time, but the resulting application will need to work these classes over a potentially pong period of time. So lets take a moment to think about our classes and members over time.
+
+-Lets first think about customer.Overtime the customers data may change.They could change there email address, their home or work address, and even thier name.It's important to think that the application needs to track the historical information.
+
+-In looking at the Order, notice that it has property of it's own for shipping address. This ensures that the shipping address is retained over time,regardless of the changes made to the customer. So if the customer moves, then calls and asks about an order, the system retained the shipping address.What about product properties? How will the product data change over time and how will that affect the order and order items?Can the product price be updated?Well, that would be problematic. The order item is refering the Product.
+Consider this scenario. Customer Joe places an order for a new keyboard. His order comes to $49.95.The staff then changes the price to $59.95.since the order item is simply referencing the product, when Joe gets an email of his order, the price is then $59.95. That would make for one unhappy customer.How do you deal with these changes, one option is that we add class for PRICE that would track price over time.That would allow determination of price at any point in time. Another option is to track the purchase price in the order item. That ensures that the price given when the order was placed is the purchase price regardless of what changes are made to the product.How this is best solved may be a question we need to talk back to our subject matter experts.For our model, we are going to add the purchase price to the order item.
+
+-Bottom line it is always good idea to take a moment and consider how time will affect your classes and members.
+
+NEw (ORDER ITEM CLASS)
+-Product 
+-Quantity
+-Purchase Price
+-Validate()
+-Retrieve()
+-Save()
+
+##Abstraction
+
+- What is a customer in the context of our application. Joe is the CEO of Smith Incorporated. He has black hair and brown eyes. He is married, has two children and a dog. He takes the metro to work evry day and goes to lunch on Fridays. For the purpose of this customer managment system, the majority of this information is irrelevant. We can abstract it away and focus only on the features of the customer appropriate for our purposes.For our case, we only care about each customer's name and contact information. We can simplfy reality and think of customer just in terms of a contact. We can ignore any details that dosen't relate to customer managment system. That allows us to focus what is important for our purposes.This is the concept of abstraction.
+
+- Defining appropriate classes by focusing on what is important for a purpose. If we were building a system that sent emails about products that Joe might like, then we would define a different abstraction for customer that included more personal information. Or,if we were building a personal assistant,we might define an abstraction that included Joe's family and how he gets to work.The appropriate abstractions depend on the requirements of the application.
+
+- You can think of abstraction as a process of defining classes by simplifying reality,ignoring extraneous details, and foucsing on what is important for a purpose.It involves abstracting away the extraneous details in order to focus on what is relevant for the particular application.Defining appropriate abstractions is considered one of the pillars or key characteristics of object-oriented programming.
+
+##Encapsulation
+
+- Another pillar of object-oriented programming is encapsulation. Unlike abstraction which is a concept, basically a way to think, encapsulation is a technique.
+ Encapsulation is a way to hide or encapsulate the data and implementation details within a class, thus hiding complexity.This large circle represents a class, specifically the customer class. The data fields, name, email, home and work addresses, are all hidden withing the class.No other code can access these data fields. The code for the operations such as the validate, retrieve, and save, is also hidden within the class.No other code can just jump into this code. The benefit of hiding this data and implementation is that no other code in the application needs to know about these details. In C#, the data is exposed to the application through proerty getters and setters. The operations are exposed to the applications through methods.This exposed set of methods and property getters and setters define the class interface to the rest of the application.We'll talk more about the interfaces later in this course. If the UI, for example, wants to access the properties such as name, it must call the getter or setter. The getter retrieves the value of the private data, optionally manipulates that data and returns it. The setter optionally validates the incoming value and if valid, updates the private data.
+
+- Any code that wants to perform an operation using the code within the class,must call the methods. The class data and code can only be accessed through the classes interface. Encapsulation is a key underlying principle that makes it possible to build large, full-featured systems by breaking complex operations into encapsulated units.These encapsulated units are defined with classes. Encapsulation allows the objects in an application to work together without each object knowing the details of the implementation. Encapsulation hides both and implementation within the class.This data hiding has many benefits.
+
+= Data Hiding: -It protects the data. No other code can modify the underlying data except through the getters and setters. This prevents an objects values from being corrupted by other objects.You can add code to the getter to perform opertions before the data is provided.For examples, you could check to ensure the user has access to the specific data element. And you can add code to the setter to perform operations before the data is set. For example, you could provide validation so that the data is never set to an invalid value.
+
+= Implementation Hiding: -Hiding the method implementation details also has many benefits. It helps to manage the complexity of the application by breaking it down into managebale units. It shields the object from having to know the implementation details. Only the class needs to understand the implementation.The code is then easier to modify and test becuase the implementation is encapsulated one place. And because of this, the implementation can be changed without impacting the rest of the application.The real world works like this as well.For example, if you go up to Amazon and order a product, you dont need to know anything about where or how your data is stored or how your order is processed.You only need to know that you can go up to Amazon, select a product,provide your name, address, and credit card informaton, and your order is placed. By building classes with properties and methods, you are encapsulation the logic for entity all withing one unit of code. That is our class.
+
+##Summary
+-In this module we used set of words in the form of set of a requirement specification to identify initial set of classes for our application.We analyzed the business problems as defined in those requirements.Then started with the nouns to identify the entities and determine which entities should be implemented as classes.We looked at the data associated with each class. We defined each relevant data element as propertes of those classes. Then we looked at the actions or behaviors that each class required. We defined those as the methods of the class.The properties and methods together define approriate members for the class.The result was an initial set of classes.
+-Along the way we defined two of the four pillars OOP.
+-Abstraction describes an entity in simple terms, ignoring the irrelevant details. It reduces complexity by focusing only on what is important for the purpose of this specific application. 
+-Encapsulation, which allows for hiding the data and the implementation within the class. We'll see encapsulation in actin in the next module.

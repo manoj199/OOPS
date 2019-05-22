@@ -1,0 +1,121 @@
+10:00 AM
+Youtube Inheritance and polymorphism
+
+Will learn:
+- Why Inheritance
+- Advantage of Inheritance
+- Syntax of Inheritance
+- Inheritance Concepts
+
+Why we actually require Inheritance?
+Ans: Assume that there are two types of employee FTE and PTE. There are certain things are common to them.
+
+public class FullTimeEmployee
+{
+ string FirstName;
+ string LastName;
+ string Email;
+ float YearlySalary;
+ 
+ public void PrintFullName()
+ {
+  
+ }
+
+}
+
+public class PartTimeEmployee
+{
+ string FirstName;
+ string LastName;
+ string Email;
+ float HourlyRate;
+
+ public void PrintFullName()
+ {
+
+ }
+
+}
+
+Most of the code is commong between two classes. For FTE we have a YearlySalary and for a PTE we have HourlyRate, that's the only basic difference. In reality there might be several differences between the classes. These two classes instead of duplicating lot of these code.. we can abstract away most of the common code into the base class.
+
+What is the advantage of doing this?
+1) Code reuse. When you do a code reuse, the amount code the testing team needs to test is drastically reduced.The amount of code in the application is also reduced. Because of which the probabllity of errors in the code is also reduced. It could save allot of time and prevent from unwanted errors in the application. Inheritance promotes reusablitiy and with that we get savings of time.
+- We write all the common functonality in the base class. And then what are specific to that respective classes are only present in those classes. The common code is abstracted away into the base class so we can reuse across these derived classes.
+- Making your fields public not at all suggested in real time. Instead we make our fields private. And expose these private fields to the external world using properties.
+
+The remodified classes where we abstract away the common data fields and operations i.e methods into the base class so the specialised classes the dervied class has only specific functionlity to them.
+
+ex: 
+
+public class Employee
+{
+ 
+ public string FirstName;
+ public string LastName;
+ public string Email;
+
+ public void PrintFullName()
+ {
+ }
+
+}
+public class FullTimeEmployee : Employee
+{
+ public float YearlySalary;
+
+}
+
+public class PartTimeEmployee : Employee
+{
+ public float HourlyRate;
+}
+
+public class Program
+{
+ public static void Main()
+ { 
+  FullTimeEmployee FTE = new FullTimeEmployee();
+  FTE.FirstName = "Pragim";
+  FTE.LastName = "Tech";
+ } 
+}
+
+- FullTimeEmployee class dosen't have the fields FullName, LastName and the PrintFullName(), but still we will be able to use them.
+- Since FTE is inheriting the EMployee all the data fields and methods from Employee will be avialable to FTE as well.  
+- Your derived class is actually a specisalisation of your base class.
+
+Why Inheritance?
+Pillars of Object Oriented Programming
+1.Inheritance
+2.Encapsulation
+3.Abstraction
+4.Polymorphism
+
+- Inheritance is one of the primary pillar of oject oriented programming.
+- It allows code reuse.
+- Code reuse can reduce time and error.
+
+- If you need understand polymorphism.. you need to first understand inheritance properly.
+
+Inheritance Syntax:
+public class ParentClass
+{
+  //Parent Class Implementation
+}
+
+public class DerivedClass : ParentClass
+{
+  //ChildClass Implementation
+}
+
+1. In this example DerivedClass inherits from ParentClass.
+2. C# supports only single class inheritance.(C# does not support multiple class inheritance i.e for your given class you can have only one base class at a given point of time)
+3. C# supports multiple interface inheritance.
+4. Child class is specialization of base class.
+5. Base classes are automatically instantiated before derived classes.
+6. Parent class constructor executes before Child Class constructor.
+
+
+

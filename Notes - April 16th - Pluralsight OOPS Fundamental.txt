@@ -1,0 +1,35 @@
+##Revisiting class diagram
+
+Let's start with the customer class.
+- The customer class needs to track the customers name.
+- Email Address: Maybe.. If the application allowed tracking of multiple email addresses for a customer then maybe not.To make a descion we go back to our subject matter experts and ask about the email address. The answer is that they currently want to track only one email address.They may change there mind about this sometime in the future.. ok.. but should we deal with multiple email addresses now?just in case..Following the YAGNI principle which stands for: you aren't going to need it..don't put any feature that may be needed in the future.	So we will leave it as a single email proerty in the customer class.
+- How about the home and work addresses.. An address requires quite a few properties..multiple line for street address..city..state..provience..zip code or other postal code, country, and an address type to identify the address is for Home or Work. 
+- Plus there are specific business rules and different address formats for different countries.
+- This sounds like it has enough functionality to stand on it's own.
+- Let's define an address class to take on those resposiblities
+
+Address Class
+= Street line 1
+= Street line 2
+= City
+= State/ Province
+= Postal Code
+= Country
+= Address type
+= Validate()
+
+- We still have the address fields in the Customer class. But they are simple instances of our new Address class..
+- Now how about the methods in our customer class. Validate() that makes sense.. The customer class should be responsible for validating it's data.
+- Retrieve :Hmmm.. Depending on the data access technology you are using entity framework, Ado.net or some other third party framework. The code in the retrieve can be extensive and complex,it dosen't make sense for the customer class to take on the responsiblity of retriving the data from the datastore.
+- Save() : Same thing.. Since both retrieve and save are dealing with the datastore.. It would make sense to put both of those responsiblities together in seprate class. By convention the class responsible for retrieving  and savin the data for an entity is called a repository class.
+
+Repository Class:
+= Retrieve()
+= Save()
+
+Note: A common practise when separating responsiblties is to put the code dealing with the data store into it's own class. There are many other common practises for defining appropriate set of classes and there associated relationships, these common practices are called design patterns. There is a design pattern called a Repository pattern.. Which we are using in a simplified form here.
+- The product and order classes.. It makes sense to use repository pattern for them as well.Each repository includes methods such as Retrieve() & Save().
+- But what about Order Item??
+
+##Demo Build a reposiotry class
+- A repository class handles the interaction with the data store.

@@ -1,0 +1,65 @@
+10.43AM
+
+Vidly Continued:
+
+Creat a Movie class: This class is a plain old CLR object or POCO. Which represents the state and behaviour of our application.In terms of it's problem domain. In our case Movie class dosen't have any behaviour or logic, it just has couple of properties which we use for representing state.
+
+Let's say we want to create an a page where we randomly pick a movie and render it's details.
+Assuming that this page would be under /movies/random. We need to create a controller called as a movies controller with an action called random.
+
+- Need to create a class Movie in model first with the necessary property
+- Then in the controller create a controller with name MoviesController. This controller is a very simple class that dervies from the Controller class.
+
+- In a real world application we often get model from the database. To keep our app simple creating a movie object in the Random Action method.
+
+- Next go to Views folder and in the Movies Folder create a view called Random
+- A partial view is not a complete page.
+- A layout is like a template or a master page. We want all our applications to have same look and feel. So select use a layout page.
+
+- When you a create a new view for Random Action method. Here you can see a mixture of C# code and HTML. And C# code prefixed with a @ sign
+
+- On the top we have a block and inside this block, we are setting two properties.
+
+- Now go back to the controller and put the movie model(object) in a our view so we can render it.
+
+- Want to change the heading <h1>Heading</h1> and render the name of the movie.So we need to write C# so we write @ sign.And type @Model.Every View has this property which gives us access to the model we pass to it in the controller.
+
+- On top of the file we need to use a directive to specfiy the type of model for this view. Then we will be able to see the properties in that model during intellisense.
+
+- Our Asp.Net MVC application uses bootstrap as it's front end css framework.
+
+- Once you download a lumen theme for bootstrap from bootswatch.. You need to put it in the content folder.. And now you need to replace the reference from bootstrap to bootstrap-lumen.So go to App_Start open up BundleConfig.cs: This is were we define various bundles of client side assets.For example we can combine and compress multiple css and javascript files into a bundle. And this way we reduce the number of http requests required to get the assests when the page is loaded this results in faster page load.
+
+Course Layout:
+- ASP.NET MVC Fundamentals: Will give you good and indepth understanding about how asp.net mvc works.
+- Entity Framework(Code - First): We use entity framework to connect our application to the database.
+- Forms
+- Validations: Implement validations
+- Build RESTFul Services: We use asp.net web api to build restful services.What restful convention means. 
+- Client Side Development: Will use Jquery to consume some of these API's 
+- Authentication and Authorization : Using Asp.Net Identity Framework.
+- Performance Optimization
+- Building a Feature Systematically 
+
+We will be more specifically looking at controller, action, routing, views and viewModels.
+
+##ActionResult
+- Our Random Action returns ActionResult. This ActionResult is the base class for all ActionResults in asp.net mvc
+- Dependin on what the action does it will return one of the instances of the classes that is derived from ActionResult.
+- In our Random action method we are calling this View() method which is inherited from the base controller class. This method allows us to quickly create View result. Alternatively we can return View result like this return new ViewResult(). You can see that it is way more easier to call the View() method.
+- Why is the return type of this action method ActionResult.. When we are returing the ViewResult?Instead of ActionResult as a return type you can simply set the return type as ViewResult.This is actual a good practise when it comes to unit testing this method.This was we will save an extra cast in our Unit Tests.
+- It may be possible sometimes that in our action we may have different execution paths and return different ActionResults. In that case we might need to set the return type of Action Method as ActionResults so we can return any of it's subtypes.
+= (Type)ViewResult: Is an action result with which we work most of the time.(Helper Method) : View()
+= PartialViewResult: To return a partial View: PartialView()
+= ContentResult: To return simple text: Content()
+= RedirectResult: To redirect the user to the url: Redirect()
+= RedirectToRouteResult: To redirect to an action instead of an url: RedirectToAction()
+= JsonResult: To return serialized json object: Json()
+= FileResult: To return a file: File()
+= HttpNotFoundResult: 404 error: HttpNotFound()
+= EmptyResult: Which is used when an action doesn't return any values.Like void
+As you can see for all these types..Except empty result we have helper method in the base controller class.
+
+--EmptyResult does not have a helper method in the controller to send the instance of EmptyResult.. So you need to return new EmptyResult() directly.
+-- return RedirectToAction("Name of the Action", "Name of the controller");
+-- Sometimes when you are redirecting the user from one page to another, we need to pass arguments to the target action.To pass these arguments we use anonyms object as third argument to this method Example: return RedirectToAction("Index", "Home", new { page = 1, sortBy = "name" })

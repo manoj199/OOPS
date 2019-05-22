@@ -1,0 +1,42 @@
+11:30 AM
+Starting with Object Oriented Programming Video from Pluralsight
+
+Day1:
+1) C# is a modern general purpose object oriented programming language. So the more you know about the object-oriented programming concepts the more you can leverage the features of C# to build well-crafted and testable applications
+
+Object oriented programming is the foundation of many current application development approaches 
+
+- Clean Code: Want to write clean code? The first step in writing clean code is to organize the code into appropriate classes using object-oriented programming techniques(FYI:Clean code is code that is easy to understand and easy to change, Easy to understand means the code is easy to read, whether that reader is the original author of the code or somebody else. It's meaning is clear so it minimizes the need for guesswork and possibility for misunderstandings.)
+
+- Defensive Coding: Want to defend your code against errors both now and in the future? The first step in integrating defensive coding techniques into your application is to organize the code into appropriate classes using object-oriented programming techniques.
+(FYI: Defensive programming is a form of defensive design intended to ensure the continuing function of a piece of software under unforeseen circumstances. Defensive programming practices are often used where high availability, safety or security is needed.
+Making the software behave in a predictable manner despite unexpected inputs or user actions.
+)
+
+- Iterative Agile: Want to use iterative or agile approach to building your software? the first step towards using an iterative or agile approach is to organize the code into appropriate classes using object-oriented programming techniques
+
+- API : Need to build an API or application programming interface for your application? Yeah, if you're building a sofware product, managment wants an API even though they probably don't know what it is.Every cool product now provides an API.. the first step in building an good API is to organize the code into appropriate classes using object-oriented programming techniques.
+
+- Design Patterns: Want to understand design and implement design patterns?Design patterns are based on object-oriented programming concepts.
+
+- Domain-Driven: Want to use domain-driven principles? Domain- Driven design is based on object-oriented programming concepts
+
+- Want to build one of those cool, new Microsoft universal Windows apps? The first step in building a universal Windows apps is to organize the code into appropriate classes using object-oriented programming techniques
+
+Understandin and using object-oriented programming techniques is the foundation of many other approaches, best practises, patterns, and architectures. Let's start our journey into object-oriented programming with a few definations
+
+2) Object != Class
+
+- A class is a code.. It has class keyword..Notice it has properties such as email address and firstName. The properties define the data managed by the class.The class also has functions such as validate. The functions define the actions or behaviours managed by the class. In object oriented programming this functions are called methods.
+
+- The basic purpose of the class is to provide the defination for a particular type of object, so this class provides object of type customer that can work with customer data and perform customer operations like validate.
+
+- An object is an instance of a class it is created using the C# new keyword. That instance is an object.The variable then references the resulting object.Hence it is often called an object variable.The object variable holds the state of that object, meaning it retains the value of it's properties. You can also use the object variable to call any of the methods identified in the class.Objects only exist at run time. When the application terminates, the object is gone. Any object state is one unless it was stored somewhere such as in a database, but the class still exists because the class is defined in the code.
+
+-Business Object (Term):You may hear this? We need to define the business objects? Confusingly, the term business objects normally refers to a class. In most cases it refers to classes specifically designed to solve a business problem,like our customer class here. So customer class could be refereed to as business object.Used in this context a business object is not an object at all. It is a class. So an object is not a class, but a business object often does refers to a class
+
+- A common metaphor forunderstanding class versus object is a cookie cutter. A class defines the properties and action for all of the objects created from it similar to this cookie cutter.Cookie created from this cookie cutter can have different colors and decorations and of course, a fly action since it as an airplane.You can use the cookie cutter to create instances,each of which is an object. Each object defines it own values for the properties so the first airplane cookie object has a yellow color with white-striped decorations and the second airplane cookie object has a red color and white-striped decorations and so on.
+
+- Each object is created as an instance of the class. Each has its own values for the proprties
+
+- Entity: We just said that the class defines the property and methods(actions) appropriate for the thing.In that case,the airplane cookie. Anything from the real world that is significant enough to be represented as a class in the application is referred to as an entity.

@@ -1,0 +1,29 @@
+11:20 AM
+Continuing with Object Oriented Programming Video from Pluralsight
+
+Day 2:
+Say we are building an Customer Managment System. From the name of the application itseems that customer would be an entity.It is important enough to consider as a class.After some analysis we would indeed need a customer class. It has first name and the last name properties and g0-on-adventure method.When executing the application, the user may request all customers with a last name that starts with b-a-g. So the application may create two instances of the customer class, one for Bilbo and one for Frodo. These are the two objects created from the class. Bilbo and Frodo are both customer objects. They are both instances of the customer class. So either both or any one can execute go-on-adventure method.
+
+OOP - Object Oriented Programming
+So what is object oriented programming? Or some people may call it OOP?
+- OOP is an approach to designing and building applications that are flexible,natural, well crafted and testable, by foucsing on objects that are interact cleanly with one another. 
+- To build an application that follows object-oriented programming techniques, start by identifying the classes from the requirements or specification.
+- OOP represents the entities and concepts of an application as a set of classes. Each class has properties that define the data each object will manage.Each class has methods which are the actions and behaviors that each object can perform
+- Next Analyzie the classes you identified and separate responsiblities as needed.OOP focuses on logically separating the responsibilities of the application into classes.The idea is the application should be decomposed into parts with minimal overlap in functionality.If each class has a singular purpose it is easier to write, test and later find that class when you need to update or extend it. That makes the code easier to modify and adapt to new requirements and future demands. You may hear this called the principle of separation of concerns. No class is an island. OOP invloves understanding the relationships between the classes. The relationships between the classes define how the objects created from the those classes can work together to perform the operations of the application and one of the key goals of OOP is reuse. By extracting commonality among a set of classes into a separate class, you have more reusable code. Extensive resuse of existing proven classes not only shortens development time, it also leads to more robust applications.
+- OOP is an iterative process. You may identify a few classes, look at separating out some responsibilities, and find you need to identify more classes. You may define some relationships and find you need to separate out more responsiblities and so on.
+
+Course Outline:
+- Identifying classes
+- Separating Responsiblities 
+- Establishing Relationships
+- Leveraging Reuse
+
+##Identifying Classes from Requirements
+
+- The change requests/implementations of the new functionality may come to you in the form of a specification,change request,or maybe just an email. 
+- This module helps you to extract classes from words as a first step in object-oriented application.
+- This module takes you step by step from business requirements to an initial set of classes that address those business requirements.
+ = Will first analyse the business problem, will start with a nouns to identify appropriate classes. Then define an initial set of classes members, that is the set of    properties and methods for each of those classes. Along the way we will identify 2 of the 4 pillars of the objected-oriented programming.
+ = The pillars define the key characteristics of OOP. 1) Abstraction 2) Encapsulation.
+
+-Some litreature skip Abstraction as a key concepts of OOPS because Abstraction is more of a concept. The way to think about your classes and not a true programming technique.

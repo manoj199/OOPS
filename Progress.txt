@@ -1,0 +1,8 @@
+1) Little bit progress on OOPS - Still need to do scenario based.. i.e realate to project.
+2) Need to make progress on ASP.NET MVC
+3) Also need to code in Hackerrank for interviews and sql
+
+Note: 
+Main thing is revision going back to the notes you made and reading them.
+
+ 

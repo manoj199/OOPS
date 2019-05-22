@@ -1,0 +1,37 @@
+10.47AM
+Continuation of OOPS Fundamental Pluralsight
+
+##Order Item Class.
+
+We have now created all of the classes, but are they the right classes. Are these classes taking to much of responsiblity.??
+
+##CheckList and Summary
+= Creating Methods : When creating the class methods, Set the appropriate access modifier to access the method from other classes and projects set the access modifier to public.
+= Specify the desired return type(This is type returned from the method) or void (If there is no return type specfic it as void).
+= Give the methods a good name. As methods are actions, method names are often verbs.Such as Validate(),Save(),Retrieve().(Verb: a word used to describe an action, state, or occurrence, and forming the main part of the predicate of a sentence, such as hear, become, happen.)
+
+##Unit Testing Methods: Test your methods with Unit Tests.
+= Define tests for valid and invalid scenarios.
+= Be sure to organize each test.
+ - Arrange(The instance of the class):And set up the test data.
+ - Act: To call the method being tested.
+ - Assert: Determine the result of the test.
+
+##Method Terminology
+- Methods have some unique terminology
+ -Signature: A methods siganture is it's name and set of parameters. It does not include the return type.The   system uses the signature to match the method call the appropriate method.
+  Ex: public Customer Retrieve(int customer)
+
+ -Overloading: Overloading describes the methods that have the same name but different signatures.
+  Ex: public Customer Retrieve(int customerId) : Takes one integer parameter
+      public List<Customer> Retrieve(): This takes no parameters. Then the retrieve method is overloaded. Since overloaded methods have same name they should provide the variations of the same functionality.
+ -Constructor:A constructor is a special method that is executed each time an instance of the class is created.The constructor name is the name of the class. Constructors can be overloaded.
+   ex: public Customer() {} : The defualt constructor has no parameter
+       public Customer(int customerId) {} : The second constructor has a id parameter
+
+In the last two modules we learnt about building and testing initial version of our customer class. And looked into code to start our remaining entity classes. 
+ 
+ 
+
+
+

@@ -1,0 +1,65 @@
+9.28am
+Continuation of Object Oriented Fundamentals
+
+##Separation of responsiblity 
+
+Our customer class creats new customers and validates customer data.It has methods to retrieve existing data and save changes.And we have not even considered managing addresses.Sound likes the customer class is doing too much.
+
+This modules helps to keep our classes foucsed by seperating responsiblities to other classes.
+ 
+- When a business is small, it is easy for the president of the company to be responsible for everything..Sales,marketing and so on.
+
+- As the business grows getting more customer and employees is no longer practical.The president needs to dligate responsiblities to others, the same is true as we build our applications.When a class has a few responsiblities it is easier for that class to contain all the code to handle those responsiblites, as the application grows the class can take on more responsiblities that it can manage by itself.In this module we think through the responsiblities of our classes and make them more focused by delegating appropriate responsiblities to other classes.
+
+##
+- So far in this course we identified initial set of classes and there members based on the requirements. The second key step in building an objected oriented application is to look at the resulting classes.And determine weather it is focused or taking to many much responsiblity.
+- Does the class need to do everything specified to it? Or it should be broken into additional classes.This step follows principle of separation of concerns.
+- The idea is that the application should be decomposed into parts with minimum overlap and each part responsible for seprate concern.
+- Seprating responsiblities MINIMIZES COUPLING, MAXIMIZES COHESION, SIMPLIFIES MAINTENANCE, IMPROVES TESTABILITY.
+
+COUPLING: Is the degree to which classes are dependent on other classes or external resources. The fewer dependecies the class has the easier it is to write test maintain and update overtime.If there are too many dependecies in the class consider moving some of those dependecies to another class.
+For Example: 
+= Customer 
+- Name 
+- Email Address
+- Home Address
+- Work Address
+- Validate()
+- Rereieve()
+- Save()
+
+= Product
+- Product Name
+- Description
+- Current Price
+- Validate()
+- Retreive()
+- Save()
+
+= Order 
+- Customer
+- Order Date
+- Shipping Address
+- Order Items
+- Validate()
+- Retrieve()
+- Save()
+
+= Order Item
+- Product 
+- Quantity
+- Purchase Price
+- Validate()
+- Retrieve()
+- Save()
+
+For Example: Each of these classes has code to retrieve and save data using Data Access Layer.Making tightly coupled to that layer, we can reduce that coupling by extracting the retrieve and save operations into separate classes.
+
+Cohesion: Is measure of how related everything in a class is to the purpose of the class. If there are properties or methods that are not truely related to the purpose of the class they should be moved to another class.For example there is allot work required to manage an address, there are quiet a few peoperties and there are requirements such as approriate address formating based on the country. Is this really make sense that customer manages all of these things?Home address,Work address and shipping address?
+- By moving the functionality into it's own class we maximise choseion in each class.
+
+Why bother ourseleves with coupling and cohesion?
+- When there is low coupling there is reduced probability that changes to one class adversely affects other classes making maintenance easier.
+- And makes testing more straight forward.Becuase the class has minimal dependecies on other classes.
+- When there is high cohesion there is higher probablity that a feature request will affect only small number of classes simplyfying maintenance. And high cohesion produces a focused well defined and complete class making it easier to understand and test.
+-classes with low coupling and high cohesion are easier to understand test maintain and extend.
