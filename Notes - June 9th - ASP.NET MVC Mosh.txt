@@ -1,0 +1,42 @@
+##Asp.Net MVC
+
+- We are building an video rental application(Vidly), which has two roles Admin and Staff Members.
+
+- What is this MVC all about? 
+= MVC stands for model view controller, it' one of the architectural patterns for implementing user interfaces.
+
+- Widely adopted in web.
+
+= Model: Application data and behaviour in terms of its problem domain, and independent of the UI.
+
+= In our video rental application. The model will consist of classes Movie, Customer, Rental, Transaction.
+--These classes have properties and methods that represent the application state and rules. They are not tied to the user interface. Which means you can take these classes and use them in different kind of app like a desktop or a mobile app, they are just Plain old CLR Objects(POCOs).
+
+= View: The Html markup that we display to the user.
+
+= Controller: Responsible for handling an HTTP Request.
+
+For Example: Our application hosted in vidly.com.. When we send a request to http://vidly.com/movies a controller will be selected to handle this request. This controller will get all the movies from the database, put them in a View and return the view to the client or the browser.
+
+- With this architecture each component has disctinct responsiblity and this results in better seperation of concerns and more maintainable applications.
+
+- Now there is one more piece to this architecture which is not present in the achronym MVC. It's a router.
+
+- When a request comes in the application, a controller will be selected to handle that request 
+
+= Router: Selecting the right controller to handle a request is the responsiblity  of the router.
+- a router based on some rules vidly.com/movies request should be handled by class called MoviesController. More accurately it should be handled by one of the methods of this class. Because a class can have many different methods, in asp.net mvc we refer to the methods of the controller class as actions. The action in a controller is responsible for handling a request.
+
+== From the Extensions and Updates.. Install Visual Studio Productivity Power Tools & Web Essentials 2017.
+
+The Visual Studio Solution has bunch of folders:
+- App_Data: Which is were our database file will be stored.
+- App_Start: Which includes some classes which are called when the applications is started.
+  RouteConfig.cs : This is the configuration of our routing rules. Here we can see we have route with the name default,   and url with url pattern. If a url matches with this pattern.
+   - The first part of the url is assumed to be the name of the controller
+   - The second part is assumed to be the name of the action.
+   - The third part is an id that we can pass to the action.
+   - If you send a request to movies/popular.Asp.Net run-time will call an method/action called Popular() in           MoviesController.
+   - Another example if you send a request movies/edit/1. Asp.Net runtime will call the edit action of the                MoviesController and pass 1 as an id to this action. i.e(Edit (int id))
+ - We can see that there are some default values in this route. If our url doesn't have any of the parts
+	

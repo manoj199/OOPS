@@ -6,10 +6,15 @@ Say we are building an Customer Managment System. From the name of the applicati
 
 OOP - Object Oriented Programming
 So what is object oriented programming? Or some people may call it OOP?
+
 - OOP is an approach to designing and building applications that are flexible,natural, well crafted and testable, by foucsing on objects that are interact cleanly with one another. 
+
 - To build an application that follows object-oriented programming techniques, start by identifying the classes from the requirements or specification.
+
 - OOP represents the entities and concepts of an application as a set of classes. Each class has properties that define the data each object will manage.Each class has methods which are the actions and behaviors that each object can perform
-- Next Analyzie the classes you identified and separate responsiblities as needed.OOP focuses on logically separating the responsibilities of the application into classes.The idea is the application should be decomposed into parts with minimal overlap in functionality.If each class has a singular purpose it is easier to write, test and later find that class when you need to update or extend it. That makes the code easier to modify and adapt to new requirements and future demands. You may hear this called the principle of separation of concerns. No class is an island. OOP invloves understanding the relationships between the classes. The relationships between the classes define how the objects created from the those classes can work together to perform the operations of the application and one of the key goals of OOP is reuse. By extracting commonality among a set of classes into a separate class, you have more reusable code. Extensive resuse of existing proven classes not only shortens development time, it also leads to more robust applications.
+
+- Next Analyzie the classes you identified and separate responsiblities as needed. OOP focuses on logically separating the responsibilities of the application into classes. The idea is the application should be decomposed into parts with minimal overlap in functionality.If each class has a singular purpose it is easier to write, test and later find that class when you need to update or extend it. That makes the code easier to modify and adapt to new requirements and future demands. You may hear this called the principle of separation of concerns. No class is an island. OOP invloves understanding the relationships between the classes. The relationships between the classes define how the objects created from the those classes can work together to perform the operations of the application and one of the key goals of OOP is reuse. By extracting commonality among a set of classes into a separate class, you have more reusable code. Extensive resuse of existing proven classes not only shortens development time, it also leads to more robust applications.
+
 - OOP is an iterative process. You may identify a few classes, look at separating out some responsibilities, and find you need to identify more classes. You may define some relationships and find you need to separate out more responsiblities and so on.
 
 Course Outline:

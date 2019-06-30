@@ -1,0 +1,49 @@
+4.20pm 1st May - ASP.NET MVC Interview Questions
+
+MVC:
+https://www.codeproject.com/Articles/556995/ASP-NET-MVC-interview-questions-with-answers
+
+SQL:
+https://www.guru99.com/sql-interview-questions-answers.html
+
+Purpose:
+1) Understand how MVC works
+2) And then remember how it works in your own way
+
+Questions:
+1) What is MVC?
+2) What is Model? Need to find a better answer for this..
+3) What you mean when Html.TextBoxFor is strongly typed.
+4) Why there is a need to maintain sessions in web application.
+5) Read little about access modifier public,private,internal and protected
+6) If you have time read about hosting applications in IIS servers
+7) Don't forget to read about jquery and Ajax
+8) Go to office and see how RPM sceurity,session handling, error handling,partical views,jquery and application structure works
+9) Check the path where we reference the necessary jquery files
+10) Make sure you work some examples on Ajax and jquery.
+
+##What is dynamic type in c#?
+Ans: The dynamic keyword is new to C# 4.0, and is used to tell the compiler that a variable's type can change or that it is not known until runtime. Think of it as being able to interact with an Object without having to cast it.
+
+-Notice we did not need to cast nor declare cust as type Customer. Because we declared it dynamic, the runtime takes over and then searches and sets the FirstName property for us. Now, of course, when you are using a dynamic variable, you are giving up compiler type checking. This means the call cust.MissingMethod() will compile and not fail until runtime. The result of this operation is a RuntimeBinderException because MissingMethod is not defined on the Customer class.
+
+The example above shows how dynamic works when calling methods and properties. Another powerful (and potentially dangerous) feature is being able to reuse variables for different types of data.
+
+##ViewData vs ViewBag vs TempData? (https://www.c-sharpcorner.com/blogs/viewdata-vs-viewbag-vs-tempdata-in-mvc1)
+Ans: - ViewData and ViewBag are used for the same purpose --  to transfer data from controller to view.
+- ViewData is nothing but a dictionary of objects and it is accessible by string as key.
+- ViewData is a property of controller that exposes an instance of the ViewDataDictionary class.
+- ViewBag is very similar to ViewData. ViewBag is a dynamic property (dynamic keyword which is introduced in .net framework 4.0). ViewBag is able to set and get value dynamically and able to add any number of additional fields without converting it to strongly typed. ViewBag is just a wrapper around the ViewData.
+- TempData is a dictionary which is derived from TempDataDictionary class.
+- TempData keeps data for the time of HTTP Request, which means that it holds data between two consecutive requests.
+- TempData helps us to transfer data between controllers or between actions.TempData internally use Session variables. 
+- Note that TempData will work during the current and subsequent request. 
+- It is generally used to store one time messages. With the help of the TempData.Keep() method we can keep value in TempData object after request completion.
+
+Note: Read more about TempDate.Keep() how to do it?
+
+## What is ViewEngine? What does it actually do?
+Ans: The view engine is responsible for creating HTML from your views. Views are usually some kind of mixup of HTML and a programming language. The pattern behind most of these is called two-step view.
+
+##When to use abstract class vs Interfaces?
+Ans: An abstract class allows you to create functionality that subclasses can implement or override. An interface only allows you to define functionality, not implement it. And whereas a class can extend only one abstract class, it can take advantage of multiple interfaces.

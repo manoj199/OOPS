@@ -2,4 +2,5 @@
 Hackerrank and Other
 
 - Collection classes are specialized classes for data storage and retrieval.
+
 - Collection classes serve various purposes, such as allocating memory dynamically to elements and accessing a list of items on the basis of an index etc.
